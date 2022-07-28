@@ -1,6 +1,14 @@
 import React from "react";
 const Tabs = () => {
 	const [activeTab, setActiveTab] = React.useState(0);
+	const tabs = [
+		"Все",
+		"Мясные",
+		"Вегетарианская",
+		"Гриль",
+		"Острые",
+		"Закрытые",
+	];
 
 	const onClickTab = (i) => {
 		setActiveTab(i);
@@ -9,42 +17,15 @@ const Tabs = () => {
 	return (
 		<div className="categories">
 			<ul>
-				<li
-					onClick={() => onClickTab(0)}
-					className={activeTab === 0 ? "active" : ""}
-				>
-					Все
-				</li>
-				<li
-					onClick={() => onClickTab(1)}
-					className={activeTab === 1 ? "active" : ""}
-				>
-					Мясные
-				</li>
-				<li
-					onClick={() => onClickTab(2)}
-					className={activeTab === 2 ? "active" : ""}
-				>
-					Вегетарианская
-				</li>
-				<li
-					onClick={() => onClickTab(3)}
-					className={activeTab === 3 ? "active" : ""}
-				>
-					Гриль
-				</li>
-				<li
-					onClick={() => onClickTab(4)}
-					className={activeTab === 4 ? "active" : ""}
-				>
-					Острые
-				</li>
-				<li
-					onClick={() => onClickTab(5)}
-					className={activeTab === 5 ? "active" : ""}
-				>
-					Закрытые
-				</li>
+				{tabs.map((value, i) => (
+					<li
+						key={i}
+						onClick={() => onClickTab(i)}
+						className={activeTab === i ? "active" : ""}
+					>
+						{value}
+					</li>
+				))}
 			</ul>
 		</div>
 	);
